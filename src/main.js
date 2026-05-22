@@ -154,9 +154,7 @@ window.addEventListener("scroll", () => {
 });
 
 
-// RUN INITIALIZATIONS ONCE CONTENT LOADS
-document.addEventListener("DOMContentLoaded", () => {
-  initStatsCounters();
-  initMobileMenu();
-  initToastFeedback();
-});
+// RUN INITIALIZATIONS IMMEDIATELY (since type="module" scripts are deferred by default)
+initStatsCounters();
+initMobileMenu();
+initToastFeedback();
