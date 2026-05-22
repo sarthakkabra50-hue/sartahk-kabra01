@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en" class="bg-dark-bg text-white">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Designer Portfolio</title>
+    <!-- Tailwind and Custom Stylesheet -->
+    <link rel="stylesheet" href="/src/index.css" />
+  </head>
+  <body class="bg-dark-bg select-none antialiased text-white font-sans">
+    
+    <!-- HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-50 w-full glass-panel py-4 px-4 md:px-12 transition-all">
+      <div class="max-w-7xl mx-auto flex items-center justify-between">
+        
+        <!-- Brand Logo -->
+        <a href="#home" id="brand-logo" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-full bg-brand flex items-center justify-center relative overflow-hidden shadow-lg shadow-brand/20 transition-transform duration-300 group-hover:rotate-12">
+            <!-- Creative SVG Layout Monogram inside circle -->
+            <svg class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <div class="absolute -right-1 -bottom-1 w-3 h-3 bg-white rounded-full"></div>
+          </div>
+          <div class="flex flex-col text-left leading-none">
+            <span class="text-white font-display font-black text-sm tracking-[0.2em] uppercase">Web</span>
+            <span class="text-white/60 font-sans font-medium text-xs tracking-widest uppercase">Designer</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Items -->
+        <nav class="hidden lg:flex items-center gap-1 xl:gap-2">
+          <a href="#home" id="nav-item-home" class="nav-link px-5 py-2 rounded-full text-black bg-brand font-medium text-sm hover:opacity-90">Home</a>
+          <a href="#about" id="nav-item-about" class="nav-link px-5 py-2 rounded-full text-white/80 hover:text-white font-medium text-sm hover:bg-white/5">About</a>
+          <a href="#services" id="nav-item-services" class="nav-link px-5 py-2 rounded-full text-white/80 hover:text-white font-medium text-sm hover:bg-white/5">Services</a>
+          
+          <!-- Pages Dropdown Menu Container -->
+          <div class="relative group">
+            <button id="nav-item-pages-btn" class="nav-link px-5 py-2 rounded-full text-white/80 hover:text-white font-medium text-sm hover:bg-white/5 flex items-center gap-1">
+              <span>Pages</span>
+              <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="absolute top-full left-0 mt-2 w-48 rounded-2xl glass-panel p-2 shadow-2xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
+              <a href="#portfolio" class="block px-4 py-2 text-sm text-white/80 hover:text-brand hover:bg-white/5 rounded-xl">Portfolio Grid</a>
+              <a href="#case" class="block px-4 py-2 text-sm text-white/80 hover:text-brand hover:bg-white/5 rounded-xl">Case Study</a>
+              <a href="#faq" class="block px-4 py-2 text-sm text-white/80 hover:text-brand hover:bg-white/5 rounded-xl">FAQ</a>
+            </div>
+          </div>
+
+          <a href="#blog" id="nav-item-blog" class="nav-link px-5 py-2 rounded-full text-white/80 hover:text-white font-medium text-sm hover:bg-white/5">Blog</a>
+          <a href="#contact" id="nav-item-contact" class="nav-link px-5 py-2 rounded-full text-white/80 hover:text-white font-medium text-sm hover:bg-white/5">Contact Us</a>
+        </nav>
+
+        <!-- Right Side Button and Burger Menu -->
+        <div class="flex items-center gap-4">
+          <!-- Download CV Pill -->
+          <button id="download-cv-btn" class="hidden md:flex items-center gap-2 bg-brand hover:bg-brand-hover text-black transition-all font-semibold rounded-full px-6 py-2.5 shadow-lg shadow-brand/15 hover:shadow-brand/25 text-sm uppercase tracking-wide group">
+            <span>Download CV</span>
+            <div class="w-6 h-6 rounded-full bg-black flex items-center justify-center transition-transform duration-300 group-hover:rotate-45">
+              <svg class="w-3.5 h-3.5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+            </div>
+          </button>
+
+          <!-- Mobile Hamburger Toggle button -->
+          <button id="mobile-menu-toggle" class="lg:hidden p-2 text-white/80 hover:text-white hover:bg-white/5 rounded-xl transition-all" aria-label="Toggle Menu">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- MOBILE NAVIGATION OVERLAY -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300">
+      <div id="mobile-menu-panel" class="fixed right-0 top-0 bottom-0 w-80 max-w-[85vw] bg-dark-card border-l border-white/10 p-6 flex flex-col justify-between translate-x-full transition-transform duration-300 shadow-2xl">
+        <div>
+          <!-- Mobile Close Header -->
+          <div class="flex items-center justify-between mb-8">
+            <span class="font-display font-bold text-lg tracking-wider text-brand">MENU</span>
+            <button id="mobile-menu-close" class="p-2 text-white/75 hover:text-white hover:bg-white/5 rounded-xl">
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          
+          <!-- Mobile menu links -->
+          <nav class="flex flex-col gap-4">
+            <a href="#home" class="mobile-nav-link text-lg text-brand font-medium">Home</a>
+            <a href="#about" class="mobile-nav-link text-lg text-white/80 hover:text-white font-medium">About</a>
+            <a href="#services" class="mobile-nav-link text-lg text-white/80 hover:text-white font-medium">Services</a>
+            <a href="#portfolio" class="mobile-nav-link text-lg text-white/80 hover:text-white font-medium">Portfolio</a>
+            <a href="#blog" class="mobile-nav-link text-lg text-white/80 hover:text-white font-medium">Blog</a>
+            <a href="#contact" class="mobile-nav-link text-lg text-white/80 hover:text-white font-medium">Contact Us</a>
+          </nav>
+        </div>
+
+        <!-- Mobile CV CTA -->
+        <button id="mobile-cv-cta" class="w-full flex items-center justify-center gap-2 bg-brand text-black font-semibold rounded-full py-3">
+          <span>Download CV</span>
+          <div class="w-6 h-6 rounded-full bg-black flex items-center justify-center">
+            <svg class="w-3.5 h-3.5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-6l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <!-- CORE WRAPPER container (centering with responsive desktop grids) -->
+    <main class="w-full max-w-7xl mx-auto px-4 md:px-12 relative overflow-hidden" id="main-content">
+      
+      <!-- HERO SECTION -->
+      <section id="home" class="relative pt-12 pb-24 md:pt-16 md:pb-32 flex flex-col md:flex-row items-center justify-between gap-12">
+        
+        <!-- Background Blends & Decorative Light Effects -->
+        <div class="absolute -left-20 -top-20 w-80 h-80 bg-brand/5 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute right-0 bottom-10 w-96 h-96 bg-brand/5 rounded-full blur-[140px] pointer-events-none"></div>
+
+        <!-- Left Column: Typography Overlay -->
+        <div class="w-full md:w-[65%] z-10 flex flex-col items-start text-left">
+          
+          <span class="text-brand font-display font-extrabold text-[11px] md:text-sm tracking-[0.3em] uppercase mb-4 animate-pulse-slow">
+            We Create Website For You
+          </span>
+          
+          <h1 class="text-white font-display font-black text-6xl sm:text-7xl lg:text-[7.5rem] tracking-tighter leading-none relative">
+            <span class="block relative z-10 hero-text-shadow">WEB</span>
+            <!-- Grayscale Designer Backdrop with inline gradient masking -->
+            <div class="absolute right-0 lg:-right-40 top-[-2rem] md:top-[-4rem] w-[280px] sm:w-[420px] md:w-[480px] h-[340px] sm:h-[480px] md:h-[550px] z-0 overflow-hidden pointer-events-none">
+              <img 
+                src="/src/assets/images/hero_designer_portrait_1779425637042.png" 
+                alt="Grayscale Male Web Designer Portrait" 
+                class="w-full h-full object-cover grayscale opacity-90 transition-transform duration-700 hover:scale-105"
+                referrerpolicy="no-referrer"
+              />
+              <!-- Smooth overlay gradient vectors to melt with black backdrop -->
+              <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-transparent"></div>
+              <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-dark-bg to-transparent"></div>
+              <div class="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-dark-bg to-transparent"></div>
+              <div class="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-dark-bg to-transparent"></div>
+            </div>
+            <span class="block text-white/95 mt-[-1rem] lg:mt-[-2rem] relative z-10 hero-text-shadow">DESIGNER</span>
+          </h1>
+
+          <div class="mt-8 md:mt-12 xl:mt-16 w-full max-w-[440px] flex flex-col sm:flex-row md:flex-col lg:flex-row items-start sm:items-center md:items-start lg:items-center gap-6 z-10">
+            <p class="text-white/60 text-sm md:text-base leading-relaxed tracking-wide">
+              It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+            </p>
+            
+            <a href="#contact" id="hero-contact-cta" class="shrink-0 flex items-center gap-3 bg-brand hover:bg-brand-hover text-black transition-all duration-300 font-bold rounded-full px-6 py-3.5 shadow-xl shadow-brand/10 hover:shadow-brand/20 group">
+              <span class="text-sm uppercase tracking-wider">Contact Us</span>
+              <div class="w-6 h-6 rounded-full bg-black flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1.5">
+                <svg class="w-3.5 h-3.5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </div>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Glassmorphic Review Badging & Socials -->
+        <div class="w-full md:w-[35%] flex flex-col items-end justify-center self-stretch relative z-10 py-12 md:py-0">
+          
+          <!-- Glossy Glass review Floating Card -->
+          <div id="review-card" class="bg-white/[0.04] backdrop-blur-xl border border-white/10 rounded-3xl p-6 shadow-2xl flex items-center gap-6 hover:border-brand/40 transition-all duration-500 hover:translate-y-[-4px] select-none mr-0 md:mr-16 animate-float">
+            
+            <div>
+              <div class="flex items-baseline gap-1">
+                <span class="text-3xl font-display font-black text-white">4.5</span>
+              </div>
+              <span class="text-xs text-white/50 block font-medium mt-1">89k+ Total Review</span>
+            </div>
+            
+            <!-- Stacked faces -->
+            <div class="flex -space-x-3 overflow-hidden">
+              <img class="inline-block h-10 w-10 rounded-full ring-2 ring-dark-bg" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200" alt="Reviewer Grace" referrerpolicy="no-referrer">
+              <img class="inline-block h-10 w-10 rounded-full ring-2 ring-dark-bg" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200" alt="Reviewer Daniel" referrerpolicy="no-referrer">
+              <img class="inline-block h-10 w-10 rounded-full ring-2 ring-dark-bg" src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&q=80&w=200" alt="Reviewer Thomas" referrerpolicy="no-referrer">
+              <img class="inline-block h-10 w-10 rounded-full ring-2 ring-dark-bg" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200" alt="Reviewer Lily" referrerpolicy="no-referrer">
+            </div>
+
+          </div>
+
+          <!-- Vertical Social Handles column -->
+          <div id="socials-floating-bar" class="absolute right-0 top-1/2 -translate-y-1/2 flex flex-col gap-4 items-center bg-white/[0.02] border border-white/5 backdrop-blur rounded-full py-6 px-3 shadow-xl">
+            <!-- X logo -->
+            <a href="https://x.com" target="_blank" class="w-10 h-10 rounded-full border border-white/10 hover:border-brand flex items-center justify-center text-white/70 hover:text-brand hover:scale-110 transition-all duration-300" aria-label="X (Twitter)">
+              <svg class="w-4.5 h-4.5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+            <!-- Dribbble (Active Green backdrop) -->
+            <a href="https://dribbble.com" target="_blank" class="w-10 h-10 rounded-full bg-brand text-black flex items-center justify-center shadow-lg shadow-brand/20 hover:scale-110 transition-all duration-300" aria-label="Dribbble">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm1.03 2.051c1.378.188 2.658.749 3.738 1.579-.196.485-.453.978-.763 1.468C14.864 5.253 13.9 4.545 13.03 4.051zm4.498 2.228c-.961-.75-2.096-1.259-3.32-1.428.784.457 1.656 1.11 2.533 1.914.281-.157.545-.311.787-.486zm1.189.972c-.273.18-.567.35-.877.514-.696-.653-1.423-1.215-2.158-1.673a11.192 11.192 0 013.035 1.159zM12 4.015c.677 0 1.332.067 1.968.196-.693.385-1.472.932-2.227 1.579a32.057 32.057 0 00-2.315-1.571 10.323 10.323 0 012.574-.204zm-1.895.344a30.82 30.82 0 012.247 1.52C11.517 6.381 10.662 7.03 9.8 7.7a28.093 28.093 0 00-1.849-1.92 10.34 10.34 0 012.154-1.421zm-3.238 2.22c.504.53 1.054 1.109 1.616 1.71a25.5 25.5 0 01-2.923.332 10.3 10.3 0 011.307-2.042zm-1.864 3c.094-.486.237-.954.423-1.398 1.127-.132 2.261-.202 3.376-.196-.282.8-.57 1.636-.856 2.483-1.077-.168-2.155-.429-3.2-.731l.257-.158zm-.3 1.513c.895.27 1.815.5 2.736.65a36.945 36.945 0 00-.73 2.518c-.89-.54-1.666-1.198-2.316-1.94-.17-.4-.294-.817-.354-1.25V13.092zm.5 2.564c.594.629 1.291 1.163 2.062 1.6a33.518 33.518 0 01.353-2.613c-.88-.135-1.72-.344-2.415-.568v1.581zm1.265 1.968c-.378-.453-.71-.94-.993-1.46a36.273 36.273 0 002.324.502 10.316 10.316 0 01-1.331.958zm2.637.7a10.288 10.288 0 01-1.996-.548c.197-.243.414-.492.65-.745.397.07.795.127 1.196.17a37.284 37.284 0 01.15 1.123zm2.535.539a10.337 10.337 0 01-2.193-.244s-.044-.548-.11-1.1c.365.016.733.024 1.1.024.417 0 .832-.008 1.246-.024-.015.42-.03.882-.043 1.344zm2.14-.143a10.313 10.313 0 01-1.57.443h-.043c.01-.328.02-.693.028-1.09.684-.047 1.348-.124 1.986-.226l-.401.873zm2.25-.86c-.524.341-1.1.616-1.713.818l.385-.845c.421-.102.825-.218 1.205-.349l.123.376zm1.189-1.253a10.355 10.355 0 01-.84 1.254c-.266.115-.544.218-.832.308l.582-1.328a21.433 21.433 0 001.09-.234zm1.139-1.581a10.301 10.301 0 01-.482 1.459l-.8-2.073c.475.129.932.28 1.365.454l-.083.16z" clip-rule="evenodd" />
+              </svg>
+            </a>
+            <!-- Behance -->
+            <a href="https://behance.net" target="_blank" class="w-10 h-10 rounded-full border border-white/10 hover:border-brand flex items-center justify-center text-white/70 hover:text-brand hover:scale-110 transition-all duration-300" aria-label="Behance">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8.336 6.945c1.072 0 1.905.253 2.43.743.526.49.792 1.18.792 2.031 0 .616-.145 1.144-.43 1.543-.284.4-.698.694-1.218.86v.053c.692.149 1.212.476 1.528.961.32.484.481 1.118.481 1.86 0 .911-.29 1.637-.852 2.128-.562.492-1.396.743-2.454.743H2V6.945h6.336zm-3.136 4.305H7.76c.504 0 .888-.094 1.116-.276.23-.186.345-.494.345-.91 0-.39-.115-.679-.34-.849-.224-.175-.591-.264-1.077-.264H5.2v2.3zM5.2 16.3h2.793c.535 0 .937-.1 1.171-.295.234-.197.359-.516.359-.968 0-.462-.116-.777-.344-.94-.229-.164-.64-.247-1.196-.247H5.2V16.3zm13.109-9.356h3.454v1.074h-3.454V6.944zm-.124 4.542c1.037 0 1.868.293 2.45 1.182.529.79.624 1.81.624 2.825H15.11c0 .717.13 1.267.439 1.597.311.33.784.496 1.348.496.883 0 1.401-.341 1.705-1.072h1.696c-.4 1.48-1.579 2.586-3.401 2.586-1.129 0-2.029-.356-2.656-1.053-.627-.697-.94-1.639-.94-2.836 0-1.135.309-2.062.915-2.76.609-.697 1.455-1.011 2.533-1.011zm.006 1.452c-.524 0-.947.163-1.233.483-.284.32-.424.787-.456 1.4h3.336c0-.594-.122-1.047-.384-1.37a1.272 1.272 0 00-1.263-.513z"/>
+              </svg>
+            </a>
+            <!-- Pinterest -->
+            <a href="https://pinterest.com" target="_blank" class="w-10 h-10 rounded-full border border-white/10 hover:border-brand flex items-center justify-center text-white/70 hover:text-brand hover:scale-110 transition-all duration-300" aria-label="Pinterest">
+              <svg class="w-4.5 h-4.5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.966 1.406-5.966s-.359-.72-.359-1.781c0-1.663.967-2.907 2.17-2.907 1.024 0 1.518.773 1.518 1.7 0 1.03-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.771-2.254 3.771-5.507 0-2.881-2.07-4.896-5.017-4.896-3.418 0-5.423 2.566-5.423 5.219 0 1.03.397 2.144.897 2.754.097.12.112.224.083.345-.09.375-.293 1.199-.334 1.363-.053.224-.18.27-.411.159-1.533-.717-2.493-2.962-2.493-4.76 0-3.883 2.82-7.446 8.132-7.446 4.269 0 7.592 3.042 7.592 7.11 0 4.238-2.672 7.653-6.381 7.653-1.246 0-2.417-.647-2.819-1.414 0 0-.617 2.353-.767 2.923-.279 1.077-1.04 2.428-1.547 3.259 1.129.349 2.324.537 3.56.537 6.62 0 11.988-5.368 11.988-11.987c0-6.62-5.367-11.98-11.981-11.98z"/>
+              </svg>
+            </a>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- SEPARATOR RULE LINE -->
+      <hr class="border-white/10 w-full" />
+
+      <!-- HIGH-IMPACT STATISTICS ROW -->
+      <section id="stats-bar" class="py-12 md:py-16">
+        <div class="grid grid-cols-2 lg:grid-cols-5 gap-8 items-center text-center">
+          
+          <!-- Stat 1 -->
+          <div class="flex flex-col items-center gap-4 group" id="stat-card-customers">
+            <div class="w-14 h-14 rounded-full bg-white/[0.03] outline outline-1 outline-white/10 flex items-center justify-center group-hover:bg-brand group-hover:outline-brand group-hover:text-black transition-all duration-300">
+              <!-- smiley face -->
+              <svg class="w-6 h-6 text-white group-hover:text-black transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div class="text-left leading-tight">
+              <span class="block text-3xl md:text-4xl font-display font-black text-white" data-target="4830">0</span>
+              <span class="text-xs md:text-sm text-white/55 font-medium mt-1 uppercase tracking-wider block">Happy Customer</span>
+            </div>
+          </div>
+
+          <!-- Stat 2 -->
+          <div class="flex flex-col items-center gap-4 group" id="stat-card-awards">
+            <div class="w-14 h-14 rounded-full bg-white/[0.03] outline outline-1 outline-white/10 flex items-center justify-center group-hover:bg-brand group-hover:outline-brand group-hover:text-black transition-all duration-300">
+              <!-- Trophy Icon -->
+              <svg class="w-6 h-6 text-white group-hover:text-black transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+              </svg>
+            </div>
+            <div class="text-left leading-tight">
+              <div class="flex items-baseline">
+                <span class="text-3xl md:text-4xl font-display font-black text-white" data-target="90">0</span>
+                <span class="text-xl font-bold text-brand ml-0.5">+</span>
+              </div>
+              <span class="text-xs md:text-sm text-white/55 font-medium mt-1 uppercase tracking-wider block">Award Win</span>
+            </div>
+          </div>
+
+          <!-- Stat 3 -->
+          <div class="flex flex-col items-center gap-4 group" id="stat-card-projects">
+            <div class="w-14 h-14 rounded-full bg-white/[0.03] outline outline-1 outline-white/10 flex items-center justify-center group-hover:bg-brand group-hover:outline-brand group-hover:text-black transition-all duration-300">
+              <!-- Successful Projects check icon -->
+              <svg class="w-6 h-6 text-white group-hover:text-black transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+              </svg>
+            </div>
+            <div class="text-left leading-tight">
+              <span class="block text-3xl md:text-4xl font-display font-black text-white" data-target="3065">0</span>
+              <span class="text-xs md:text-sm text-white/55 font-medium mt-1 uppercase tracking-wider block">Successful Project</span>
+            </div>
+          </div>
+
+          <!-- Stat 4 -->
+          <div class="flex flex-col items-center gap-4 group" id="stat-card-experience">
+            <div class="w-14 h-14 rounded-full bg-white/[0.03] outline outline-1 outline-white/10 flex items-center justify-center group-hover:bg-brand group-hover:outline-brand group-hover:text-black transition-all duration-300">
+              <!-- Seal/Badge Icon -->
+              <svg class="w-6 h-6 text-white group-hover:text-black transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+              </svg>
+            </div>
+            <div class="text-left leading-tight">
+              <div class="flex items-baseline">
+                <span class="text-3xl md:text-4xl font-display font-black text-white" data-target="20">0</span>
+                <span class="text-xl font-bold text-brand ml-0.5">+</span>
+              </div>
+              <span class="text-xs md:text-sm text-white/55 font-medium mt-1 uppercase tracking-wider block">Year of Experience</span>
+            </div>
+          </div>
+
+          <!-- Stat 5 -->
+          <div class="flex flex-col items-center gap-4 group" id="stat-card-satisfaction">
+            <div class="w-14 h-14 rounded-full bg-white/[0.03] outline outline-1 outline-white/10 flex items-center justify-center group-hover:bg-brand group-hover:outline-brand group-hover:text-black transition-all duration-300">
+              <!-- Percentage sign icon -->
+              <svg class="w-6 h-6 text-white group-hover:text-black transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 7h.01M15 17h.01M9 17L15 7m-6 10a3 3 0 110-6 3 3 0 010 6zm6-10a3 3 0 110-6 3 3 0 010 6z" />
+              </svg>
+            </div>
+            <div class="text-left leading-tight">
+              <div class="flex items-baseline">
+                <span class="text-3xl md:text-4xl font-display font-black text-white" data-target="90">0</span>
+                <span class="text-xl font-bold text-brand ml-0.5">%</span>
+              </div>
+              <span class="text-xs md:text-sm text-white/55 font-medium mt-1 uppercase tracking-wider block">Satisfaction Rate</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ABOUT US SECTION -->
+      <section id="about" class="py-20 md:py-28 relative grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        
+        <!-- Left Column: Rich descriptive copy -->
+        <div class="lg:col-span-7 flex flex-col items-start text-left z-10" id="about-info-col">
+          
+          <span class="text-brand font-display font-bold text-xs uppercase tracking-[0.3em] mb-4">
+            About Us
+          </span>
+          
+          <h2 class="text-white font-display font-black text-4xl sm:text-5xl leading-tight tracking-tight mb-6">
+            Are you looking for creative design? Let me help you!
+          </h2>
+          
+          <p class="text-white/60 text-sm md:text-base leading-relaxed mb-8">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not typesetting, remaining essentially unchanged.
+          </p>
+
+          <!-- 2x2 Checked grid bullet points -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 w-full mb-10 text-white/85">
+            
+            <div class="flex items-center gap-3">
+              <div class="w-5 h-5 rounded bg-brand/10 border border-brand/30 flex items-center justify-center text-brand shrink-0">
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <span class="text-sm font-medium">Lorem ipsum dolor sit amet.</span>
+            </div>
+            
+            <div class="flex items-center gap-3">
+              <div class="w-5 h-5 rounded bg-brand/10 border border-brand/30 flex items-center justify-center text-brand shrink-0">
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <span class="text-sm font-medium">Lorem ipsum dolor sit amet.</span>
+            </div>
+            
+            <div class="flex items-center gap-3">
+              <div class="w-5 h-5 rounded bg-brand/10 border border-brand/30 flex items-center justify-center text-brand shrink-0">
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <span class="text-sm font-medium">Lorem ipsum dolor sit amet.</span>
+            </div>
+            
+            <div class="flex items-center gap-3">
+              <div class="w-5 h-5 rounded bg-brand/10 border border-brand/30 flex items-center justify-center text-brand shrink-0">
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <span class="text-sm font-medium">Lorem ipsum dolor sit amet.</span>
+            </div>
+
+          </div>
+
+          <!-- Bottom Button -->
+          <a href="#about-more" id="about-more-btn" class="flex items-center gap-3 bg-brand hover:bg-brand-hover text-black transition-all font-bold rounded-full px-6 py-3.5 shadow-xl shadow-brand/10 group">
+            <span class="text-sm uppercase tracking-wider">More About</span>
+            <div class="w-6 h-6 rounded-full bg-black flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1.5">
+              <svg class="w-3.5 h-3.5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </div>
+          </a>
+
+        </div>
+
+        <!-- Right Column: Sculpted Dome image container -->
+        <div class="lg:col-span-5 flex justify-center items-center relative py-12" id="about-graphics-col">
+          
+          <!-- Background Glow backing -->
+          <div class="absolute -right-10 top-0 w-72 h-72 bg-brand/10 rounded-full blur-[90px] -z-10"></div>
+          
+          <!-- Dome Frame wrapper -->
+          <div id="dome-frame" class="relative w-[300px] sm:w-[350px] aspect-[4/5] bg-brand dome-mask flex items-end justify-center select-none shadow-2xl overflow-visible group">
+            
+            <!-- Graphic Element of secondary designer portait -->
+            <div class="w-full h-full overflow-hidden dome-mask absolute inset-0">
+              <img 
+                src="/src/assets/images/about_designer_portrait_1779425656451.png" 
+                alt="Creatives about designer model portrait" 
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                referrerpolicy="no-referrer"
+              />
+            </div>
+
+            <!-- Overlapping Float Pill Banner at top left: "20+ Year Of Experience" -->
+            <div id="experience-badge" class="absolute left-[-1.5rem] sm:left-[-3rem] top-12 bg-[#0c0c0e] border border-white/10 rounded-full py-3 px-6 shadow-2xl flex items-center gap-3.5 select-none hover:border-brand/35 transition-all duration-300">
+              <span class="text-white font-display font-black text-xl sm:text-2xl tracking-normal">20 +</span>
+              <div class="flex flex-col text-left leading-[1.1]">
+                <span class="text-white/60 font-medium text-[8px] sm:text-[9px] uppercase tracking-widest block">Year Of</span>
+                <span class="text-brand font-bold text-[9px] sm:text-[10px] uppercase tracking-widest block">Experience</span>
+              </div>
+            </div>
+
+            <!-- Overlapping decorative outline mint green circle element at the bottom left -->
+            <div class="absolute bottom-8 left-[-1.5rem] w-12 h-12 bg-transparent border-[6px] border-brand rounded-full pointer-events-none transition-transform duration-500 group-hover:scale-110"></div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- FOOTER static credentials & micro notifications container -->
+    <footer class="w-full bg-[#050506] border-t border-white/5 py-12 px-6">
+      <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-white/45">
+        <div class="flex items-center gap-2">
+          <span class="font-display font-bold text-white text-base tracking-widest uppercase">Web Designer</span>
+          <span class="text-white/15">|</span>
+          <span>&copy; 2026. All rights Reserved.</span>
+        </div>
+        <div class="flex gap-6 items-center">
+          <a href="#privacy" class="hover:text-brand transition-colors">Privacy Policy</a>
+          <a href="#terms" class="hover:text-brand transition-colors">Terms of Services</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- INTERTACTIVE TOAST notification system -->
+    <div id="interactive-toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 glass-panel border border-brand/20 rounded-2xl py-3 px-6 shadow-2xl flex items-center gap-3 opacity-0 translate-y-4 pointer-events-none transition-all duration-300">
+      <div class="w-2.5 h-2.5 rounded-full bg-brand animate-ping"></div>
+      <span class="text-sm font-medium text-white/90" id="toast-message">CV successfully downloaded!</span>
+    </div>
+
+    <!-- Core Interactive Client Script -->
+    <script type="module" src="/src/main.js"></script>
+    
+  </body>
+</html>

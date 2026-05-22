@@ -1,0 +1,6 @@
+{
+  "name": "Web Designer Portfolio",
+  "description": "A dark, highly polished static web designer portfolio website built with vanilla HTML, CSS, and JS.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
